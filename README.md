@@ -19,7 +19,7 @@ A Virtualization Solution I used for running ubuntu on my mac
 qemu-system-x86_64 -accel tcg \
 -m 4096 \
 -hda msl.qcow2 \
--cdrom I-pasted-muy-iso-image-inside-my-ubuntu-folder-and-just-pasted-the-iso-image-file-name-here.iso \
+-cdrom I-pasted-my-iso-image-inside-my-ubuntu-folder-and-just-pasted-the-iso-image-file-name-here.iso \
 -boot d \
 -smp 2 \
 -net nic \
