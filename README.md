@@ -133,3 +133,53 @@ killall qemu-system-x86_64
 ---
 
 **Happy Virtualizing!**
+
+---
+
+# Extra 
+
+QEMU does not have a centralized location to "store installations" like WSL or VirtualBox. Instead, **QEMU stores everything in the disk image file(s)** you create (e.g., `.qcow2`), which you specify in the command when starting a VM.
+
+Here’s a breakdown of where files are stored:
+
+---
+
+### 1. **Disk Images**
+- When you create a disk image with `qemu-img`, it is stored wherever you specify.
+- Example: If you run:
+  ```bash
+  qemu-img create -f qcow2 ~/ubuntu/msl.qcow2 40G
+  ```
+  The disk image (`msl.qcow2`) is saved in the `~/ubuntu` directory.  
+  This file contains the entire OS installation, including all its data.
+
+---
+
+### 2. **Configuration and Metadata**
+QEMU doesn’t store configurations or metadata globally. Instead,<br>
+all configurations (e.g., RAM, CPU, accelerators) are provided as **command-line arguments** each time you run the VM.<br>
+To persist settings:
+- Save your QEMU command to a script for reuse.
+
+---
+
+### 3. **ISO Files**
+- The OS installation ISO is usually stored where you downloaded it. QEMU doesn’t copy the ISO;<br>
+it only references the file during installation.
+- Example: If your ISO is in `~/ubuntu`, QEMU will read it directly from there.
+
+---
+
+### 4. **Temporary and Log Files**
+- **Snapshots**: If you take snapshots, these may be stored alongside the `.qcow2` file.
+- **Temporary Files**: QEMU may store temporary files in `/tmp` or similar system directories, but these are cleared after shutdown.
+
+---
+
+### Summary
+- **OS and data**: Stored in the `.qcow2` disk file you specify.
+- **ISOs**: Stored where you download them (not moved by QEMU).
+- **Configurations**: Provided via commands/scripts (no centralized config).
+- **Temporary files**: Stored in system temp directories during runtime.
+
+If you’d like to explore the contents of your `.qcow2` files, you can use QEMU tools like `qemu-img` to manage them.
