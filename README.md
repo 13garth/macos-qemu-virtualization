@@ -5,5 +5,6 @@ A Virtualization Solution I used for running ubuntu on my mac
 - brew install qemu
 
 ## Create a local directory for your VM
-- I created a folder in my user directory call
-user-name/ubuntu
+- I created a folder in my user directory call "username/ubuntu/"
+- go into the directopry in your terminal
+-- cd username/ubuntu/
