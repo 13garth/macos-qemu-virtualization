@@ -25,3 +25,6 @@ qemu-system-x86_64 -accel tcg \
 -net nic \
 -net user,hostfwd=tcp::4022-:22 \
 ```
+
+# Credit to: 
+https://github.com/macbian-admin/macos-subsystem-for-linux
