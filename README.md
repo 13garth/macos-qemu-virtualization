@@ -1,3 +1,6 @@
+Using accelorator tcg is very inefficient. But using hvf can cause bugs.<br>
+hvf is hyper visor technology built into mac. You can install it and if you can get qemu to boot with hvf instead. It is supposedly supposed to run much faster.
+---
 # Mac OS QEMU Virtualization
 A simple guide for running Ubuntu (or other Linux distributions) on macOS using QEMU.
 
